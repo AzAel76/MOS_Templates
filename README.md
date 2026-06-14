@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# MOS_Templates
-Collection Of MOS Docker Templates
-=======
 # This is a template repository for MOS Hub
 
 For further examples for templates please refer to on of these repositories:
@@ -13,4 +9,3 @@ https://github.com/J000K3R/MOS-Templates
 https://github.com/Joly0/mos-templates
 https://github.com/anym001/mos-docker-templates
 ```
->>>>>>> c478f6c (Initial commit)
