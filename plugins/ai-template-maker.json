@@ -6,7 +6,7 @@
   "architecture": ["amd64", "arm64"],
   "driver": false,
   "settings": true,
-  "icon": "https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/robot-outline.svg",
+  "icon": "https://cdn.jsdelivr.net/gh/AzAel76/MOS_Templates@main/assets/ai-template-maker.svg",
   "readme_url": "https://github.com/AzAel76/mos-docker-template-maker#readme",
   "author": "AzAel76",
   "homepage": "https://github.com/AzAel76/mos-docker-template-maker",
