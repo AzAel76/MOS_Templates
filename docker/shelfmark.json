@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "/mnt/cache/appdata/shelfmark/config",
+      "host": "./config",
       "container": "/config",
       "mode": "rw",
       "description": "Config, database, and artwork cache directory.",
