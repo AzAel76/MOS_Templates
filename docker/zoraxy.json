@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Config Path",
-      "host": "./config",
+      "host": "/mnt/cache/appdata/zoraxy/config",
       "container": "/opt/zoraxy/config/",
       "mode": "rw",
       "description": "Zoraxy configuration, proxy rules, and certificates.",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Plugin Path",
-      "host": "./plugin",
+      "host": "/mnt/cache/appdata/zoraxy/plugin",
       "container": "/opt/zoraxy/plugin/",
       "mode": "rw",
       "description": "Zoraxy plugins.",

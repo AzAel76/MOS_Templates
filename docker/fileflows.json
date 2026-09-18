@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "./data",
+      "host": "/mnt/cache/appdata/fileflows/data",
       "container": "/app/Data",
       "mode": "rw",
       "description": "Database and application data. Best kept on appdata.",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Logs Path",
-      "host": "./logs",
+      "host": "/mnt/cache/appdata/fileflows/logs",
       "container": "/app/Logs",
       "mode": "rw",
       "description": "Logging directory.",

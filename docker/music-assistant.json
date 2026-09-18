@@ -20,7 +20,7 @@
   "paths": [
     {
       "name": "Data Path",
-      "host": "./data",
+      "host": "/mnt/cache/appdata/music-assistant",
       "container": "/data",
       "mode": "rw",
       "description": "Persistent data directory for the server's configuration and database.",
