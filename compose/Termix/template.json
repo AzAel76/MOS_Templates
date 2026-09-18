@@ -1,0 +1,8 @@
+{
+  "name": "Termix",
+  "description": "Termix is a self-hosted SSH and remote desktop management tool with a web UI for organizing and connecting to your servers. This stack bundles Termix with Guacamole's guacd daemon, which powers its remote desktop (RDP/VNC) sessions.",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/termix.png",
+  "webui": "http://{IP}:8080",
+  "category": ["Network", "Utilities"],
+  "readme_url": "https://github.com/Termix-SSH/Termix#readme"
+}
