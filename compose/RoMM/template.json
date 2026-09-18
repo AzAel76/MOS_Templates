@@ -1,0 +1,8 @@
+{
+  "name": "RoMM",
+  "description": "RoMM (Rom Manager) is a self-hosted ROM manager and player that scrapes metadata and box art from IGDB, ScreenScraper, RetroAchievements and more, and lets you browse, organize, and play your retro game library from the browser (including in-browser emulation via EmulatorJS). This stack bundles the RoMM app with its required MariaDB database.",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/romm.png",
+  "webui": "http://{IP}:80/",
+  "category": ["Media"],
+  "readme_url": "https://docs.romm.app/"
+}

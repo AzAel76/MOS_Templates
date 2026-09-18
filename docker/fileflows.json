@@ -1,0 +1,102 @@
+{
+  "name": "FileFlows",
+  "repo": "revenz/fileflows:stable",
+  "category": ["productivity", "media"],
+  "registry": "https://hub.docker.com/r/revenz/fileflows/",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "bash",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:5000]",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/fileflows.png",
+  "project": "https://fileflows.com/",
+  "support": "https://forum.fileflows.com",
+  "description": "FileFlows lets you process files through a visual rule-based flow system, with a primary focus on video file processing: converting to standard formats (HEVC/AC3), removing black bars, adding chapter points, and more. Supports a server plus additional processing nodes.",
+  "donate": "https://www.patreon.com/revenz",
+  "requires": null,
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/fileflows/data",
+      "container": "/app/Data",
+      "mode": "rw",
+      "description": "Database and application data. Best kept on appdata.",
+      "required": true
+    },
+    {
+      "name": "Logs Path",
+      "host": "/mnt/cache/appdata/fileflows/logs",
+      "container": "/app/Logs",
+      "mode": "rw",
+      "description": "Logging directory.",
+      "required": true
+    },
+    {
+      "name": "Temp Path",
+      "host": "/mnt/cache/temp/fileflows",
+      "container": "/temp",
+      "mode": "rw",
+      "description": "Temporary files created during flow processing. Best placed on a cache/SSD drive.",
+      "required": true
+    },
+    {
+      "name": "Media Path",
+      "host": "/mnt/user",
+      "container": "/media/",
+      "mode": "rw",
+      "description": "Mapping to the media/files you want FileFlows to process. Add as many of these as needed.",
+      "required": false
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "5000",
+      "container": "5000",
+      "protocol": "tcp",
+      "description": "FileFlows web interface.",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Timezone",
+      "key": "TZ",
+      "value": "Etc/UTC",
+      "description": "Timezone, e.g. America/New_York.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "99",
+      "description": "User ID the container runs as.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "100",
+      "description": "Group ID the container runs as.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "NVIDIA Visible Devices",
+      "key": "NVIDIA_VISIBLE_DEVICES",
+      "value": "all",
+      "description": "Set a specific GPU ID from FileFlows' settings page if you have multiple NVIDIA GPUs. Requires the NVIDIA container runtime.",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

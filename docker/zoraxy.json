@@ -1,0 +1,96 @@
+{
+  "name": "Zoraxy",
+  "repo": "zoraxydocker/zoraxy:latest",
+  "category": ["network"],
+  "registry": "https://hub.docker.com/r/zoraxydocker/zoraxy",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped --add-host=host.docker.internal:host-gateway",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8000]",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/zoraxy.png",
+  "project": "https://zoraxy.aroz.org",
+  "support": "https://github.com/tobychui/zoraxy/issues",
+  "description": "Zoraxy is a general purpose HTTP reverse proxy and forwarding tool with a web-based management UI, ACME auto TLS/SSL, and a plugin system. The management interface listens on port 8000 by default; ports 80/443 handle proxied web traffic.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/cache/appdata/zoraxy/config",
+      "container": "/opt/zoraxy/config/",
+      "mode": "rw",
+      "description": "Zoraxy configuration, proxy rules, and certificates.",
+      "required": true
+    },
+    {
+      "name": "Plugin Path",
+      "host": "/mnt/cache/appdata/zoraxy/plugin",
+      "container": "/opt/zoraxy/plugin/",
+      "mode": "rw",
+      "description": "Zoraxy plugins.",
+      "required": false
+    },
+    {
+      "name": "Docker Socket",
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "mode": "rw",
+      "description": "Used for additional Docker-aware functionality with Zoraxy.",
+      "required": false
+    }
+  ],
+  "ports": [
+    {
+      "name": "HTTP",
+      "host": "80",
+      "container": "80",
+      "protocol": "tcp",
+      "description": "HTTP traffic for proxied sites.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "HTTPS",
+      "host": "443",
+      "container": "443",
+      "protocol": "tcp",
+      "description": "HTTPS traffic for proxied sites.",
+      "required": true,
+      "mask": false
+    },
+    {
+      "name": "Management UI",
+      "host": "8000",
+      "container": "8000",
+      "protocol": "tcp",
+      "description": "Zoraxy web management interface.",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Timezone",
+      "key": "TZ",
+      "value": "Etc/UTC",
+      "description": "Timezone, e.g. America/New_York.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "Fast GeoIP",
+      "key": "FASTGEOIP",
+      "value": "false",
+      "description": "Enable high speed geoip lookup. Requires ~1GB extra memory.",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

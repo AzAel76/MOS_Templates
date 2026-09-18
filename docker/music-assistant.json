@@ -1,0 +1,52 @@
+{
+  "name": "Music Assistant",
+  "repo": "ghcr.io/music-assistant/server:latest",
+  "category": ["media"],
+  "registry": "https://github.com/music-assistant/server/pkgs/container/server",
+  "network": "host",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:8095/",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/music-assistant.png",
+  "project": "https://music-assistant.io",
+  "support": "https://github.com/music-assistant/support/issues",
+  "description": "Music Assistant is a free, open-source media library manager that connects to your streaming services and a wide range of connected speakers (Sonos, Chromecast, AirPlay, DLNA, and more). Host networking is required for local player discovery via mDNS/uPnP.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/music-assistant",
+      "container": "/data",
+      "mode": "rw",
+      "description": "Persistent data directory for the server's configuration and database.",
+      "required": true
+    },
+    {
+      "name": "Music Path",
+      "host": "/mnt/user/Media/Music",
+      "container": "/media",
+      "mode": "ro",
+      "description": "Optional path to your local music files.",
+      "required": false
+    }
+  ],
+  "ports": [],
+  "variables": [
+    {
+      "name": "Log Level",
+      "key": "LOG_LEVEL",
+      "value": "info",
+      "description": "Logging verbosity: critical, error, warning, info, or debug.",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

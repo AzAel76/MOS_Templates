@@ -1,0 +1,70 @@
+{
+  "name": "Shelfmark",
+  "repo": "ghcr.io/calibrain/shelfmark:latest",
+  "category": ["media"],
+  "registry": "https://github.com/calibrain/shelfmark/pkgs/container/shelfmark",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:8084]",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/shelfmark.png",
+  "project": "https://github.com/calibrain/shelfmark",
+  "support": "https://github.com/calibrain/shelfmark/issues",
+  "description": "Shelfmark is a self-hosted web interface for searching and requesting books and audiobooks across multiple sources (web, torrent, usenet, IRC), with metadata search via Hardcover, Open Library, and Google Books. Pairs well with Calibre-Web, Calibre-Web-Automated, and Audiobookshelf for automatic imports.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Config Path",
+      "host": "/mnt/cache/appdata/shelfmark/config",
+      "container": "/config",
+      "mode": "rw",
+      "description": "Config, database, and artwork cache directory.",
+      "required": true
+    },
+    {
+      "name": "Books Path",
+      "host": "/mnt/user/Media/Books",
+      "container": "/books",
+      "mode": "rw",
+      "description": "Default destination for downloaded books. Point this at your Calibre-Web/CWA/Grimmory ingest folder for automatic import.",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "8084",
+      "container": "8084",
+      "protocol": "tcp",
+      "description": "Shelfmark web interface.",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "1000",
+      "description": "User ID the container runs as.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "1000",
+      "description": "Group ID the container runs as.",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}

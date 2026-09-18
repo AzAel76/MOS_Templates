@@ -1,0 +1,8 @@
+{
+  "name": "BookOrbit",
+  "description": "BookOrbit is a self-hosted library and reading platform for ebooks, PDFs, audiobooks, and comics. It syncs reading progress and highlights across the web reader, Kobo, and KOReader, and adds metadata providers, reading stats, OPDS, Send-to-Kindle delivery, and multi-user accounts with OIDC/SSO. This stack bundles the BookOrbit app with its required PostgreSQL (pgvector) database.",
+  "icon": "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/bookorbit.png",
+  "webui": "http://{IP}:3000",
+  "category": ["Media", "Productivity"],
+  "readme_url": "https://github.com/bookorbit/bookorbit#readme"
+}
