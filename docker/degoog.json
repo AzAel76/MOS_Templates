@@ -1,0 +1,78 @@
+{
+  "name": "Degoog",
+  "repo": "ghcr.io/degoog-org/degoog:latest",
+  "category": ["network", "utilities"],
+  "registry": "https://github.com/degoog-org/degoog/pkgs/container/degoog",
+  "network": "bridge",
+  "custom_ip": null,
+  "default_shell": "sh",
+  "privileged": false,
+  "extra_parameters": "--restart unless-stopped",
+  "post_parameters": null,
+  "cpu_set": null,
+  "web_ui_url": "http://[IP]:[PORT:4444]",
+  "icon": "https://cdn.jsdelivr.net/gh/degoog-org/degoog/src/public/images/degoog-logo.png",
+  "project": "https://degoog-org.github.io/docs/",
+  "support": "https://github.com/degoog-org/degoog/issues",
+  "description": "Degoog is a self-hosted search engine aggregator that queries multiple search engines and shows results in one place. It supports custom search engines, bang-command plugins, query-triggered slot plugins, and pluggable transports (curl, FlareSolverr, etc). Set a settings password before exposing this to the internet, since an unlocked instance lets anyone install extensions that run code on the server.",
+  "donate": null,
+  "requires": null,
+  "paths": [
+    {
+      "name": "Data Path",
+      "host": "/mnt/cache/appdata/degoog/data",
+      "container": "/app/data",
+      "mode": "rw",
+      "description": "Stores engines, plugins, themes, transports, and other on-disk state.",
+      "required": true
+    }
+  ],
+  "ports": [
+    {
+      "name": "WebUI",
+      "host": "4444",
+      "container": "4444",
+      "protocol": "tcp",
+      "description": "Degoog web interface.",
+      "required": true,
+      "mask": false
+    }
+  ],
+  "variables": [
+    {
+      "name": "Settings Password",
+      "key": "DEGOOG_SETTINGS_PASSWORDS",
+      "value": "",
+      "description": "Comma-separated list of passwords for the settings page. Set this before exposing the instance to the internet; unlocked instances allow anyone to install extensions.",
+      "required": false,
+      "mask": true
+    },
+    {
+      "name": "Public Instance",
+      "key": "DEGOOG_PUBLIC_INSTANCE",
+      "value": "false",
+      "description": "Run in public mode with restricted settings access, for shared/public-facing instances.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "PUID",
+      "key": "PUID",
+      "value": "1000",
+      "description": "User ID the container process runs as.",
+      "required": false,
+      "mask": false
+    },
+    {
+      "name": "PGID",
+      "key": "PGID",
+      "value": "1000",
+      "description": "Group ID the container process runs as.",
+      "required": false,
+      "mask": false
+    }
+  ],
+  "devices": [],
+  "labels": [],
+  "gpus": []
+}
